@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import io.restassured.RestAssured;
-
+//I have used Reqres.in a sample api website to test the apis present with different http verbs.
 public class APITests {
 
 	
@@ -147,7 +147,24 @@ System.out.println(responseBody);
         Assert.assertNotNull(Token);
         System.out.println(Token);
     }
-    
+ 
+        @Test
+        public void testPostRequestWithSchema() {
+        	RestAssured.baseURI = "https://fakerestapi.azurewebsites.net/api/v1";
+            // Define the JSON schema for the request body
+            String requestBody = "{\"id\": 0, \"idBook\": 0, \"firstName\": \"string\", \"lastName\": \"string\"}";
+
+            // Send a POST request to the endpoint with the request body
+            Response response = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+            .when()
+                .post("/Authors");
+
+            // Validate the response status code
+            int statusCode = response.getStatusCode();
+            Assert.assertEquals(statusCode, 200, "Expected status code is 200 (Created).");
+        }
     
 }
 

@@ -5,8 +5,8 @@
     <classes>
       <class name="APITests">
         <methods>
+          <include name="testPostRequestWithSchema"/>
           <include name="setup"/>
-          <include name="PutRequest"/>
         </methods>
       </class> <!-- APITests -->
     </classes>
