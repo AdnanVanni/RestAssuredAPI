@@ -120,7 +120,7 @@ System.out.println(responseBody);
         String job = jsonPathEvaluator.get("job");
         // Validate if the specific JSON element is equal to expected value
         Assert.assertTrue(job.equalsIgnoreCase("zion resident"));
-        System.out.println(response);
+        System.out.println(response.getBody().asPrettyString());
     }
     
     @Test
@@ -150,20 +150,23 @@ System.out.println(responseBody);
  
         @Test
         public void testPostRequestWithSchema() {
-        	RestAssured.baseURI = "https://fakerestapi.azurewebsites.net/api/v1";
+        	RestAssured.baseURI = "https://fakerestapi.azurewebsites.net/api";
             // Define the JSON schema for the request body
-            String requestBody = "{\"id\": 0, \"idBook\": 0, \"firstName\": \"string\", \"lastName\": \"string\"}";
+            String requestBody = "{\"id\": 0, \"idBook\": 0, \"firstName\": \"abc\", \"lastName\": \"def\"}";
 
             // Send a POST request to the endpoint with the request body
             Response response = RestAssured.given()
-                .contentType(ContentType.JSON)
+            		.header("Content-type", "application/json")
                 .body(requestBody)
             .when()
-                .post("/Authors");
+                .post("/v1/Authors");
 
             // Validate the response status code
             int statusCode = response.getStatusCode();
             Assert.assertEquals(statusCode, 200, "Expected status code is 200 (Created).");
+            System.out.println(response.getBody().asPrettyString());
+            System.out.println(RestAssured.baseURI);
+            
         }
     
 }

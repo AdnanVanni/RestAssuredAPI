@@ -2,16 +2,16 @@
 <testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-26T21:07:53 IST" name="Default suite" finished-at="2023-09-26T21:07:55 IST" duration-ms="2466">
+  <suite started-at="2023-09-26T21:31:27 IST" name="Default suite" finished-at="2023-09-26T21:31:29 IST" duration-ms="2556">
     <groups>
     </groups>
-    <test started-at="2023-09-26T21:07:53 IST" name="Default test" finished-at="2023-09-26T21:07:55 IST" duration-ms="2466">
+    <test started-at="2023-09-26T21:31:27 IST" name="Default test" finished-at="2023-09-26T21:31:29 IST" duration-ms="2556">
       <class name="APITests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:APITests@7756c3cd]" started-at="2023-09-26T21:07:53 IST" name="setup" finished-at="2023-09-26T21:07:53 IST" duration-ms="455" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:APITests@7756c3cd]" started-at="2023-09-26T21:31:27 IST" name="setup" finished-at="2023-09-26T21:31:27 IST" duration-ms="423" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testPostRequestWithSchema()[pri:0, instance:APITests@7756c3cd]" started-at="2023-09-26T21:07:53 IST" name="testPostRequestWithSchema" finished-at="2023-09-26T21:07:55 IST" duration-ms="1980" status="PASS">
+        <test-method signature="testPostRequestWithSchema()[pri:0, instance:APITests@7756c3cd]" started-at="2023-09-26T21:31:27 IST" name="testPostRequestWithSchema" finished-at="2023-09-26T21:31:29 IST" duration-ms="2103" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testPostRequestWithSchema -->
