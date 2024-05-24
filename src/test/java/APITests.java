@@ -1,4 +1,6 @@
 import io.restassured.*;
+import io.restassured.matcher.RestAssuredMatchers.* ;
+
 import io.restassured.http.ContentType;
 import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.path.json.JsonPath;
@@ -31,8 +33,12 @@ public class APITests {
             .statusCode(200) // Expected status code
             .contentType("application/json") // Expected content type
             .assertThat()
-            .body("data.id", org.hamcrest.Matchers.equalTo(2))
-        .body("data.email", org.hamcrest.Matchers.equalTo("janet.weaver@redqres.in"));
+            .body("data.id",org.hamcrest.Matchers.equalTo(2) )
+        .body("data.email", org.hamcrest.Matchers.equalTo("janet.weaver@reqres.in"));
+        
+        Response response=RestAssured.when().get("/api/users/2");
+        response.then().assertThat().body("data.email", org.hamcrest.Matchers.equalTo("janet.weaver@reqres.in"));
+       
         
         //System.out.println("values is "+val);
        
