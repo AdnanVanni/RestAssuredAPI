@@ -1,5 +1,6 @@
 import io.restassured.*;
 import io.restassured.http.ContentType;
+import io.restassured.matcher.ResponseAwareMatcher;
 import io.restassured.path.json.JsonPath;
 
 import java.io.Console;
@@ -8,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
+import jdk.internal.net.http.common.Log;
 import io.restassured.RestAssured;
 //I have used Reqres.in a sample api website to test the apis present with different http verbs.
 public class APITests {
@@ -25,14 +27,25 @@ public class APITests {
             .when()
             .get("/api/users/2")
             .then()
+            .log().all()
             .statusCode(200) // Expected status code
-            .contentType("application/json"); // Expected content type
+            .contentType("application/json") // Expected content type
+            .assertThat()
+            .body("data.id", org.hamcrest.Matchers.equalTo(2))
+        .body("data.email", org.hamcrest.Matchers.equalTo("janet.weaver@redqres.in"));
+        
+        //System.out.println("values is "+val);
        
     }
     
     
 
-    @Test
+    private ResponseAwareMatcher<Response> equalsTo(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Test
     public void PostRequest() {
     	
     	/*the response returned by this post API is {
